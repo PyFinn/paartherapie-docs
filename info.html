@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Paartherapie · Design‑Guide</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /**************************
+        *        Farbvariablen    *
+        ***************************/
+        :root{
+          /* Basis‑Palette */
+          --color-primary:             #2D336B;
+          --color-primary-container:   #5259A8;
+          --color-secondary:           #7886C7;
+          --color-secondary-container: #A8B2DE;
+          --color-tertiary:            #FCC8BC;
+          --color-tertiary-container:  #FFE6DE;
+          --color-background:          #FFF2F2;
+          --color-surface:             #FFFFFF;
+          --color-outline:             #BDBDBD;
+          /* Hinweisfarben (Pastell‑Varianten) */
+          --color-error:               #F9DEDC;   /* Pastell von #D32F2F */
+          --color-warning:             #FFF4CC;   /* Pastell von #FFB300 */
+          --color-success:             #C8E6C9;   /* Pastell von #4CAF50 */
+          /* Textfarben */
+          --color-text-dark:           #333333;
+          --color-text-light:          #FFFFFF;
+        }
+
+        /**************************
+        *      Basis‑Layout       *
+        ***************************/
+        html,body{
+          margin:0;
+          padding:0;
+          font-family:'Inter',sans-serif;
+          color:var(--color-text-dark);
+          background:var(--color-background);
+          line-height:1.6;
+        }
+        header{
+          background:var(--color-primary);
+          color:var(--color-text-light);
+          padding:2rem 1rem;
+          text-align:center;
+        }
+        h1{margin:0;font-size:2.2rem;letter-spacing:.05em;}
+        main{max-width:1140px;margin:0 auto;padding:2rem 1rem;}
+        h2{font-size:1.8rem;margin-top:0;}
+
+        /**************************
+        *     Inhaltsverzeichnis  *
+        ***************************/
+        /* ---------- Globale Seiten-Navigation (Design-Guide | Datenschutz) ---------- */
+        .site-nav ul{
+          display:flex;gap:1.6rem;list-style:none;padding:0;margin:0;
+        }
+        .site-nav a{
+          color:var(--color-primary);font-weight:600;text-decoration:none;
+        }
+        .site-nav a.active{font-weight:700;text-decoration:underline}
+
+        /* ---------- Inhaltsverzeichnis (Seiten-intern) ---------- */
+        .toc-nav{
+          margin:2.5rem 0;          /* angenehmer Abstand zu Header & Content */
+        }
+        .toc-nav ul{
+          list-style:none;padding:0;margin:0;columns:2 240px;column-gap:2rem;
+        }
+        .toc-nav li{margin:.25rem 0}
+        .toc-nav a{
+          color:var(--color-primary);text-decoration:none;font-weight:600;
+        }
+        .toc-nav a:hover{text-decoration:underline}
+
+        /**************************
+        *        Sektionen        *
+        ***************************/
+        section{margin-bottom:4rem;}
+        section h2{border-left:.4rem solid var(--color-primary);padding-left:.6rem;}
+
+        /**************************
+        *      Farb‑Karten        *
+        ***************************/
+        .color-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+          gap:1.6rem;
+        }
+        .color-card{
+          border:1px solid var(--color-outline);
+          border-radius:.85rem;
+          overflow:hidden;
+          background:var(--color-background); /* Vorgabe: App‑Hintergrund */
+          box-shadow:0 2px 5px rgba(0,0,0,.06);
+        }
+        .swatch{height:90px;}
+        .info{padding:1rem;}
+        .info h3{margin:.2rem 0 .5rem;font-size:1.15rem;}
+        .hex{font-family:monospace;font-size:.9rem;}
+        .usage{font-size:.85rem;color:var(--color-text-dark);}
+
+        /**************************
+        *       Komponenten       *
+        ***************************/
+        /* Buttons */
+        .btn{display:inline-block;font-weight:600;border:none;border-radius:.5rem;padding:.65rem 1.6rem;font-size:1rem;cursor:pointer;transition:background .15s,border-color .15s,color .15s;user-select:none;text-align:center;line-height:1.2;}
+        /* Primär */
+        .btn-primary{background:var(--color-primary);color:var(--color-text-light);}
+        .btn-primary:hover{background:var(--color-primary-container);}
+        /* Sekundär */
+        .btn-secondary{background:var(--color-secondary);color:var(--color-text-light);}
+        .btn-secondary:hover{background:var(--color-secondary-container);}
+        /* Tertiär */
+        .btn-tertiary{background:var(--color-tertiary);color:var(--color-primary);}
+        .btn-tertiary:hover{background:var(--color-tertiary-container);}
+        /* Umriss */
+        .btn-outline{background:transparent;color:var(--color-primary);border:2px solid var(--color-primary);}
+        .btn-outline:hover{background:var(--color-primary);color:var(--color-text-light);}
+        .btn:disabled{opacity:.45;cursor:not-allowed;}
+
+        /* Chip */
+        .chip{display:inline-flex;align-items:center;padding:.3rem .9rem;border-radius:999px;font-size:.85rem;background:var(--color-tertiary-container);color:var(--color-primary);gap:.35rem;}
+
+        /* Snackbar */
+        .snackbar{max-width:320px;margin:1rem 0;padding:1rem 1.2rem;border-radius:.5rem;font-size:.9rem;color:var(--color-text-dark);}
+        .snackbar.success{background:var(--color-success);}
+        .snackbar.warning{background:var(--color-warning);}
+        .snackbar.error{background:var(--color-error);}
+
+        /* ---------- Buttons: gleichmäßiges Spacing ---------- */
+        .button-row{
+          display:flex;
+          flex-wrap:wrap;
+          justify-content:space-between;   /* verteilt die Buttons über die Breite */
+          gap:1rem;                        /* Abstand zwischen den Buttons */
+        }
+        .button-row .btn{
+          flex:1 1 160px;                  /* alle Buttons erhalten dieselbe Breite (min 160 px) */
+        }
+
+        /* ---------- Snackbar: Text in Primärfarbe ---------- */
+        .snackbar{
+          color:var(--color-primary);
+        }
+
+        /* Form Fields */
+        .field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem;}
+        .field label{font-weight:600;font-size:.9rem;}
+        .field input{padding:.55rem .9rem;border:1.8px solid var(--color-outline);border-radius:.5rem;font-size:.95rem;background:var(--color-surface);transition:border .15s;}
+        .field input:focus{outline:none;border-color:var(--color-primary);}
+        .field input:disabled{background:var(--color-surface);opacity:.5;}
+
+        /* ---------- Textfelder: Primärfarbige Outline & Texte ---------- */
+        .field label{
+          display:block;
+          margin-bottom:.35rem;
+          color:var(--color-primary);        /* Label-Schrift */
+          font-weight:600;
+        }
+
+        .field input{
+          width:100%;
+          padding:.55rem .8rem;
+          font-family:'Nimbus Sans',sans-serif;
+          font-size:1rem;
+          color:var(--color-primary);        /* Eingabetext */
+          background:var(--color-surface);
+          border:2px solid var(--color-primary);   /* Outline */
+          border-radius:.5rem;
+          transition:border-color .2s ease;
+        }
+
+        .field input::placeholder{
+          color:var(--color-primary);        /* Hint-Text */
+          opacity:.55;
+        }
+
+        /* ---------- Textfelder: rechter Rand bündig ---------- */
+        .field{
+          display:flex;
+          flex-direction:column;
+          margin-bottom:1rem;
+        }
+
+        .field input{
+          width:100%;
+          box-sizing:border-box;   /* Padding zählt jetzt zur Gesamtbreite → kein Überlaufen mehr */
+          padding:.55rem .8rem;
+          font-family:'Nimbus Sans',sans-serif;
+          font-size:1rem;
+          color:var(--color-primary);
+          background:var(--color-surface);
+          border:2px solid var(--color-primary);
+          border-radius:.5rem;
+          transition:border-color .2s ease;
+        }
+
+
+        .field input:focus{
+          outline:none;
+          border-color:var(--color-primary-container);  /* leichte Aufhellung beim Fokus */
+          box-shadow:0 0 0 2px rgba(45,51,107,.15);     /* weicher Fokus-Ring */
+        }
+
+
+        /* Demo Karten */
+        .demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;}
+        .demo-card{background:var(--color-surface);border:1px solid var(--color-outline);border-radius:.85rem;box-shadow:0 2px 5px rgba(0,0,0,.06);padding:1.4rem;}
+        .demo-card h4{margin:0 0 1rem;font-size:1.2rem;color:var(--color-primary);}
+
+        /* Druckfreundlich */
+        @media print{
+          nav{display:none;}
+          header{page-break-after:avoid;}
+          section{page-break-inside:avoid;}
+        }
+
+        <!-- ---------- 2) CSS-ERGÄNZUNGEN IM <style>-BLOCK ---------- -->
+        /* ---------- Fonts einbinden ---------- */
+        @font-face {
+          font-family: 'Museo Sans Rounded';
+          src: url('assets/fonts/Museo-Sans/Museo Sans Rounded 300.ttf') format('truetype');
+          font-weight: 300;
+        }
+        @font-face {
+          font-family: 'Museo Sans Rounded';
+          src: url('assets/fonts/Museo-Sans/Museo Sans Rounded 500.ttf') format('truetype');
+          font-weight: 500;
+        }
+        @font-face {
+          font-family: 'Museo Sans Rounded';
+          src: url('assets/fonts/Museo-Sans/Museo Sans Rounded 700.ttf') format('truetype');
+          font-weight: 700;
+        }
+
+        @font-face {
+          font-family: 'Nimbus Sans';
+          src: url('assets/fonts/Nimbus-Sans/Nimbus Sans Light.ttf') format('truetype');
+          font-weight: 300;
+        }
+        @font-face {
+          font-family: 'Nimbus Sans';
+          src: url('assets/fonts/Nimbus-Sans/Nimbus Sans Regular.ttf') format('truetype');
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: 'Nimbus Sans';
+          src: url('assets/fonts/Nimbus-Sans/Nimbus Sans Bold.ttf') format('truetype');
+          font-weight: 700;
+        }
+
+        /* ---------- Typo-Hilfsklassen ---------- */
+        .font-display   { font-family:'Museo Sans Rounded', sans-serif; }
+        .font-body      { font-family:'Nimbus Sans', sans-serif;       }
+
+        .typoline       { margin:.4rem 0; }
+        .typoline span  { display:inline-block; width:9rem; color:var(--color-outline); }
+
+        /* ---------- Globale Zuweisung ---------- */
+        body{ font-family:'Nimbus Sans', sans-serif; }
+        h1,h2,h3,h4,h5,h6{ font-family:'Museo Sans Rounded', sans-serif; }
+
+        /* ---------- Typografie-Grid ---------- */
+        .typo-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          gap:1.5rem;
+          margin:2rem 0;
+        }
+        .typo-card{
+          background:var(--color-surface);
+          border:1px solid var(--color-outline);
+          border-radius:.75rem;
+          padding:1.2rem 1.4rem;
+          box-shadow:0 1px 3px rgba(0,0,0,.05);
+        }
+        .typo-label{
+          font-family:'Nimbus Sans',sans-serif;
+          font-size:.75rem;
+          color:var(--color-outline);
+          text-transform:uppercase;
+          letter-spacing:.04em;
+          margin-bottom:.35rem;
+          display:block;
+        }
+        .typo-sample{margin:0;}
+
+        /* ---------- Komponenten-Gallery ---------- */
+        .component-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+          gap:1.6rem;
+        }
+        .component-card{
+          background:var(--color-surface);
+          border:1px solid var(--color-outline);
+          border-radius:.85rem;
+          box-shadow:0 2px 5px rgba(0,0,0,.06);
+          overflow:hidden;
+        }
+        .component-card img{
+          display:block;
+          width:100%;
+          height:auto;
+        }
+        .component-card figcaption{
+          padding:1rem 1.2rem;
+          font-size:.95rem;
+          color:var(--color-text-dark);
+        }
+        * --- Komponenten-Gallery größer darstellen -------------------- */
+        .component-grid{
+          grid-template-columns:1fr;        /* immer genau 1 Spalte */
+        }
+
+        .component-card img{
+          max-width:100%;                  /* gesamte Kartenbreite nutzen */
+          border-radius:0;                 /* Bild füllt die Karte randlos */
+        }
+
+        /* ---------- Card-Hover (klein) ---------- */
+        .component-card{
+          transition:transform .25s ease, box-shadow .25s ease;
+        }
+        .component-card:hover{
+          transform:translateY(-4px) scale(1.03);
+          box-shadow:0 8px 18px rgba(0,0,0,.12);
+          cursor:pointer;
+        }
+
+        /* ---------- Lightbox via :target ---------- */
+        .lightbox{
+          position:fixed;inset:0;
+          background:rgba(0,0,0,.75);
+          display:flex;align-items:center;justify-content:center;
+          opacity:0;pointer-events:none;transition:opacity .25s ease;
+          z-index:999;
+        }
+        .lightbox img{
+          max-width:90vw;max-height:90vh;border-radius:.8rem;box-shadow:0 6px 12px #0004;
+        }
+        .lightbox:target{opacity:1;pointer-events:auto}
+
+        /* Close-Button (oben rechts) */
+        .lightbox a.close{
+          position:absolute;top:2rem;right:2rem;
+          font-size:2rem;line-height:1;color:#fff;text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Kopfbereich -->
+<header>
+    <h1>Paartherapie-App</h1>
+    <p>Projekt‑Dokumentation & Design‑Guide</p>
+</header>
+
+<main>
+    <!-- Inhaltsverzeichnis -->
+    <nav class="site-nav">
+        <ul>
+            <li><a href="info.html" class="active">Design-Guide</a></li>
+            <li><a href="datenschutz.html">Datenschutz-Strategie</a></li>
+            <li><a href="inhalt.html">Inhalt</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. Inhaltsverzeichnis des Design-Guides -->
+    <nav class="toc-nav">
+        <ul>
+            <li><a href="#farbe">1 · Farbpalette</a></li>
+            <li><a href="#styleboard">2 · Styleboard</a></li>
+            <li><a href="#typografie">3 · Typografie</a></li>
+            <li><a href="#komponenten">4 · UI-Komponenten</a></li>
+            <li><a href="#architektur">5 · Architektur &amp; Build-Setup</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Farbpalette -->
+    <section id="farbe">
+        <h2>1 · Farbpalette</h2>
+        <p>Unsere Farbwelt basiert auf einem seriösen Indigo, das durch frisches Periwinkle und warme Coral‑Akzente ergänzt wird. Hinweisfarben liegen in sanften Pastell‑Tönen vor und erfüllen WCAG‑Kontrast­empfehlungen.</p>
+
+        <div class="color-grid">
+            <!-- Primary -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-primary);"></div>
+                <div class="info">
+                    <h3>Primary <span class="hex">#2D336B</span></h3>
+                    <p class="usage">App‑Bar, Haupt‑Buttons, aktive Icons</p>
+                </div>
+            </div>
+            <!-- Primary Container -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-primary-container);"></div>
+                <div class="info">
+                    <h3>Primary‑Container <span class="hex">#5259A8</span></h3>
+                    <p class="usage">Hover‑States, betonte Panels</p>
+                </div>
+            </div>
+            <!-- Secondary -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-secondary);"></div>
+                <div class="info">
+                    <h3>Secondary <span class="hex">#7886C7</span></h3>
+                    <p class="usage">Sekundäre Buttons, Links</p>
+                </div>
+            </div>
+            <!-- Secondary Container -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-secondary-container);"></div>
+                <div class="info">
+                    <h3>Secondary‑Container <span class="hex">#A8B2DE</span></h3>
+                    <p class="usage">Badge‑Hintergründe, Hover für Secondary</p>
+                </div>
+            </div>
+            <!-- Tertiary -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-tertiary);"></div>
+                <div class="info">
+                    <h3>Tertiary <span class="hex">#FCC8BC</span></h3>
+                    <p class="usage">Chips, Mikro‑CTAs, illustrative Icons</p>
+                </div>
+            </div>
+            <!-- Tertiary Container -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-tertiary-container);"></div>
+                <div class="info">
+                    <h3>Tertiary‑Container <span class="hex">#FFE6DE</span></h3>
+                    <p class="usage">Hover für Tertiary, leichte Hintergründe</p>
+                </div>
+            </div>
+            <!-- Background -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-background);"></div>
+                <div class="info">
+                    <h3>Background <span class="hex">#FFF2F2</span></h3>
+                    <p class="usage">App‑Hintergrund (Light)</p>
+                </div>
+            </div>
+            <!-- Surface -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-surface);"></div>
+                <div class="info">
+                    <h3>Surface <span class="hex">#FFFFFF</span></h3>
+                    <p class="usage">Cards, Dialoge, Sheets</p>
+                </div>
+            </div>
+            <!-- Outline -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-outline);"></div>
+                <div class="info">
+                    <h3>Outline <span class="hex">#BDBDBD</span></h3>
+                    <p class="usage">Borders, Divider, Disabled‑Lines</p>
+                </div>
+            </div>
+            <!-- Success (Pastell) -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-success);"></div>
+                <div class="info">
+                    <h3>Success <span class="hex">#C8E6C9</span></h3>
+                    <p class="usage">Bestätigungs‑Snackbar, Erfolgsmeldungen</p>
+                </div>
+            </div>
+            <!-- Warning (Pastell) -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-warning);"></div>
+                <div class="info">
+                    <h3>Warning <span class="hex">#FFF4CC</span></h3>
+                    <p class="usage">Hinweis‑Snackbar, Warnmeldungen</p>
+                </div>
+            </div>
+            <!-- Error (Pastell) -->
+            <div class="color-card">
+                <div class="swatch" style="background:var(--color-error);"></div>
+                <div class="info">
+                    <h3>Error <span class="hex">#F9DEDC</span></h3>
+                    <p class="usage">Validierungsfehler, Fehler‑Snackbar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Styleboard -->
+    <section id="styleboard">
+        <h2>2 · Styleboard (Live‑Beispiele)</h2>
+        <p>Unten findest du eine Sammlung an UI‑Elementen, die unsere Farb‑ und Typo‑Regeln in Aktion zeigen.</p>
+
+        <div class="demo-grid">
+            <!-- Buttons -->
+            <div class="demo-card">
+                <h4>Buttons</h4>
+
+                <!-- NEU: flex-Container sorgt für gleichmäßige Verteilung -->
+                <div class="button-row">
+                    <button class="btn btn-primary">Primär</button>
+                    <button class="btn btn-secondary">Sekundär</button>
+                    <button class="btn btn-tertiary">Tertiär</button>
+                    <button class="btn btn-outline">Umriss</button>
+                    <button class="btn btn-primary" disabled>Disabled</button>
+                </div>
+            </div>
+
+            <!-- Inputs -->
+            <div class="demo-card">
+                <h4>Textfelder</h4>
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" placeholder="Max Mustermann">
+                </div>
+                <div class="field">
+                    <label for="pwd">Passwort</label>
+                    <input id="pwd" type="password" placeholder="••••••••">
+                </div>
+            </div>
+            <!-- Chip & Snackbar -->
+            <div class="demo-card">
+                <h4>Chips & Snackbar</h4>
+                <span class="chip">Tag‑Chip</span>
+                <div class="snackbar success">Speichern erfolgreich!</div>
+                <div class="snackbar warning">Bitte überprüfe deine Eingaben.</div>
+                <div class="snackbar error">Ein Fehler ist aufgetreten.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Typografie -->
+    <section id="typografie">
+        <h2>2 · Typografie</h2>
+
+        <p>Wir kombinieren die freundliche Eigenheit von <strong>Museo Sans Rounded</strong>
+            für Überschriften &amp; Aktions­elemente mit der neutralen Lesbarkeit von
+            <strong>Nimbus Sans</strong> im Fließtext.</p>
+
+        <div class="typo-grid">
+            <!-- Headlines -->
+            <div class="typo-card font-display">
+                <span class="typo-label">Headline XL · Museo 700 · 40 px</span>
+                <p class="typo-sample" style="font-weight:700;font-size:2.5rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <div class="typo-card font-display">
+                <span class="typo-label">Headline L · Museo 700 · 29 px</span>
+                <p class="typo-sample" style="font-weight:700;font-size:1.8rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <div class="typo-card font-display">
+                <span class="typo-label">Headline M · Museo 500 · 21 px</span>
+                <p class="typo-sample" style="font-weight:500;font-size:1.3rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <div class="typo-card font-display">
+                <span class="typo-label">Headline S · Museo 300 · 18 px</span>
+                <p class="typo-sample" style="font-weight:300;font-size:1.1rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <!-- Card-Titel -->
+            <div class="typo-card font-display">
+                <span class="typo-label">Card-Titel · Museo 500 · 20 px</span>
+                <p class="typo-sample" style="font-weight:500;font-size:1.25rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <!-- Button-Text -->
+            <div class="typo-card font-display">
+                <span class="typo-label">Button · Museo 500 · 16 px (Uppercase)</span>
+                <p class="typo-sample" style="font-weight:500;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <!-- Body-Styles -->
+            <div class="typo-card font-body">
+                <span class="typo-label">Body Regular · Nimbus 400 · 16 px</span>
+                <p class="typo-sample" style="font-weight:400;font-size:1rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <div class="typo-card font-body">
+                <span class="typo-label">Body Light · Nimbus 300 · 15 px</span>
+                <p class="typo-sample" style="font-weight:300;font-size:.95rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <div class="typo-card font-body">
+                <span class="typo-label">Body Bold · Nimbus 700 · 15 px</span>
+                <p class="typo-sample" style="font-weight:700;font-size:.95rem;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+
+            <!-- Label / Caption -->
+            <div class="typo-card font-body">
+                <span class="typo-label">Label Small · Nimbus 400 · 13 px</span>
+                <p class="typo-sample" style="font-weight:400;font-size:.83rem;text-transform:uppercase;letter-spacing:.05em;">
+                    Vertrauen bildet das Fundament einer Partnerschaft.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. UI-Komponenten -->
+    <section id="komponenten">
+        <h2>4 · UI-Komponenten</h2>
+        <p>Erste Mock-ups veranschaulichen, wie zentrale Funktionen später im App-Layout erscheinen.</p>
+
+        <div class="component-grid">
+
+            <!-- Lernpfad-Karte -->
+            <figure class="component-card">
+                <a href="#lp-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/main/learningPathPresentation.jpg"
+                         alt="Illustration zum Lernpfad">
+                </a>
+                <figcaption>
+                    <strong>Adaptiver Lernpfad</strong><br>
+                    Benutzer sehen ihre aktuellen Module, Fortschritte und die
+                    &bdquo;wach­sende Pflanze&ldquo;, die Motivation stiftet.
+                </figcaption>
+            </figure>
+
+            <!-- BnB-Karte -->
+            <figure class="component-card">
+                <a href="#bnb-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/main/bnbPresentation.jpg"
+                         alt="Illustration zur Bottom Navigation Bar">
+                </a>
+                <figcaption>
+                    <strong>Navigationsleiste</strong><br>
+                    Animierte Navigation zwischen den Hauptseiten der Anwendung.
+                </figcaption>
+            </figure>
+
+        </div>
+        <div class="component-grid">
+
+            <!-- Lernpfad-Karte -->
+            <figure class="component-card">
+                <a href="#pflanze-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/pflanze.png"
+                         alt="Idee Pflanze">
+                </a>
+                <figcaption>
+                    <strong>Wachsende Pflanze</strong><br>
+                    Eine der &bdquo;wach­senden Pflanzen&ldquo;, die symbolisch und motivationsstiftend wirkt.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Lightbox-Overlays -->
+    <div id="lp-lightbox" class="lightbox">
+        <a href="#komponenten" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/main/learningPathPresentation.jpg"
+             alt="Großansicht Lernpfad">
+    </div>
+
+    <div id="bnb-lightbox" class="lightbox">
+        <a href="#komponenten" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/main/bnbPresentation.jpg"
+             alt="Großansicht Bottom Navigation Bar">
+    </div>
+    <div id="pflanze-lightbox" class="lightbox">
+        <a href="#komponenten" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/pflanze.png"
+             alt="Großansicht Bottom Navigation Bar">
+    </div>
+</main>
+</body>
+</html>

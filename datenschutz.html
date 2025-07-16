@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title>Paartherapie · Datenschutz-Strategie</title>
+
+    <style>
+        /* ---------- Fonts (identisch eingebunden, lokal im Projekt) ---------- */
+        @font-face{font-family:'Museo Sans Rounded';src:url('assets/fonts/Museo-Sans/Museo Sans Rounded 500.ttf') format('truetype');font-weight:500}
+        @font-face{font-family:'Nimbus Sans';src:url('assets/fonts/Nimbus-Sans/Nimbus Sans Regular.ttf') format('truetype');font-weight:400}
+        :root{
+          --c-primary:#2D336B;--c-bg:#FFF2F2;--c-surface:#FFF;--c-outline:#BDBDBD;
+          --c-white:#fff;--c-text:#333;
+        }
+        *,*:before,*:after{box-sizing:border-box}
+        html,body{margin:0;padding:0;background:var(--c-bg);color:var(--c-text);font:400 1rem/1.6 'Nimbus Sans',sans-serif}
+        h1,h2,h3{font-family:'Museo Sans Rounded',sans-serif;margin:0}
+        header{text-align:center;padding:2rem 1rem;background:var(--c-primary);color:var(--c-white)}
+        main{max-width:900px;margin:auto;padding:2rem 1rem}
+        nav ul{display:flex;gap:1.4rem;list-style:none;padding:0;margin:0 0 2.5rem}
+        nav a{color:var(--c-primary);font-weight:500;text-decoration:none}
+        nav a.active{font-weight:700;text-decoration:underline}
+        section{margin-bottom:3rem}
+        section h2{font-size:1.6rem;border-left:.35rem solid var(--c-primary);padding-left:.6rem}
+
+        /* ---------- Prinzip-Karten ---------- */
+        .principle{
+          background:var(--c-surface);border:1px solid var(--c-outline);border-radius:.8rem;
+          padding:1.4rem;margin-bottom:1.6rem;
+        }
+        .principle h3{color:var(--c-primary);font-size:1.25rem;margin-bottom:.6rem}
+        .principle h4{font-size:1rem;margin:.9rem 0 .3rem;color:var(--c-text)}
+
+        /* ---------- Infografik ---------- */
+        .infographic{
+          display:block;
+          max-width:640px;   /* begrenzt die Breite auf großen Screens */
+          width:100%;
+          margin:1.4rem auto;          /* zentriert & sorgt für Abstand */
+          border-radius:12px;          /* runde Ecken */
+          box-shadow:0 4px 8px #0002;  /* dezenter Schatten */
+        }
+
+        #grundsaetze > h2{
+          margin-bottom:1.2rem;   /* beliebig anpassen */
+        }
+
+        /* ---------- Intro-Banner ---------- */
+        .intro{
+          background:var(--c-surface);
+          border:1px solid var(--c-outline);
+          border-radius:.9rem;
+          padding:1.6rem 1.8rem;
+          margin-bottom:2.2rem;      /* Abstand zu den folgenden Artikeln */
+          box-shadow:0 3px 6px #0002;
+        }
+        .intro h2{                   /* Überschrift größer & markanter */
+          font-size:1.7rem;
+          border:none;
+          margin:0 0 1rem;
+          color:var(--c-primary);
+        }
+        .intro p{margin:.8rem 0}
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Paartherapie · Datenschutz</h1>
+    <p>Strategie &amp; Leitlinien zum Datenschutz</p>
+</header>
+
+<main>
+    <!-- Navigation zwischen den Themenseiten -->
+    <nav>
+        <ul>
+            <li><a href="info.html">Design-Theme</a></li>
+            <li><a href="datenschutz.html" class="active">Datenschutz</a></li>
+            <li><a href="inhalt.html">Inhalt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Datenschutz-Inhalte -->
+    <section id="grundsaetze">
+
+        <!-- Intro-Banner (steht jetzt ganz oben) -->
+        <div class="intro">
+            <h2>Warum Datenschutz in der Paarlife-App elementar ist</h2>
+
+            <p>
+                In der Paartherapie werden die <strong>intimsten Bereiche einer Beziehung</strong> berührt – von
+                Konflikten über Bedürfnisse bis hin zu Sexualität und psychischer Gesundheit.
+            </p>
+
+            <p>
+                Wie <a href="https://www.kirchenzeitung.ch/article/interview-zu-paarlife-mit-guy-bodenmann-und-birgit-kollmeyer-7305"
+                       target="_blank" rel="noopener">
+                Prof.&nbsp;Guy Bodenmann in einem Interview mit der Schweizerischen Kirchenzeitung (2025)
+            </a> hervorhebt, besteht das Herzstück von Paarlife darin, einen
+                <em>„geschützten Rahmen“</em> zu schaffen.
+                Die App überträgt genau dieses Prinzip in den digitalen Raum:<br><br>
+                Ein vertraulicher Schutzraum, in dem sich Paare sicher fühlen, offen kommunizieren
+                und darauf vertrauen können, dass ihre Daten mit höchstem Respekt und modernster
+                Verschlüsselung behandelt werden.
+            </p>
+
+            <p>
+                Damit dieser Schutzraum online genauso sicher ist wie im Therapieraum,
+                folgen wir vier Leitgedanken:
+            </p>
+
+            <ul>
+                <li><strong>Absolute Vertraulichkeit</strong> – Inhalte sind ausschließlich für das Paar bestimmt.</li>
+                <li><strong>Selbstbestimmte Datenhoheit</strong> – jede Aktion erfordert eine explizite Zustimmung.</li>
+                <li><strong>Bewährte Sicherheitskonzepte</strong> – Ende-zu-Ende-Verschlüsselung als Standard,
+                    optionale Zusatzsicherung per PIN/Biometrie.</li>
+                <li><strong>Transparenz &amp; Nachvollziehbarkeit</strong> – das Paar sieht jederzeit,
+                    wo Daten liegen und kann sie löschen oder exportieren.</li>
+            </ul>
+
+            <p>
+                Die nachfolgenden Datenschutz-Grundprinzipien zeigen, <em>wie</em> wir diese
+                Leitgedanken technisch und organisatorisch umsetzen.
+            </p>
+        </div>
+
+        <!-- 1 -->
+        <article class="principle">
+            <h3>1 · Ende-zu-Ende-Verschlüsselung (E2EE)</h3>
+            <h4>Warum?</h4>
+            <p>Paare teilen äußerst persönliche Informationen. E2EE garantiert, dass nur sie selbst Inhalte entschlüsseln können.</p>
+            <h4>Wie in der Paarlife-App?</h4>
+            <ul>
+                <li>Nachrichten, Notizen sowie Audio-/Videoaufnahmen werden nur verschlüsselt gespeichert &amp; übertragen.</li>
+                <li>Schlüsselverwaltung liegt ausschließlich auf den Endgeräten der Nutzer.</li>
+                <li>Selbst Administratoren haben keinen Einblick – das schafft Vertrauen.</li>
+            </ul>
+
+            <!-- Infografik -->
+            <img  src="https://raw.githubusercontent.com/PyFinn/fez/main/assets/e2ee.png"
+                  alt="Illustration zur Ende-zu-Ende-Verschlüsselung in der Paarlife-App"
+                  class="infographic">
+        </article>
+
+        <!-- 2 -->
+        <article class="principle">
+            <h3>2 · Lokale Datenspeicherung &-Verarbeitung</h3>
+            <h4>Warum?</h4>
+            <p>Dezentrale Speicherung senkt das Risiko von Datenlecks.</p>
+            <h4>Wie in der Paarlife-App?</h4>
+            <ul>
+                <li>Daten wie Biografie-Antworten oder Übungsprotokolle bleiben lokal.</li>
+                <li>Nötige Synchronisation erfolgt nur verschlüsselt &amp; minimal.</li>
+            </ul>
+            <img  src="https://raw.githubusercontent.com/PyFinn/fez/main/assets/lokaleDaten.png"
+                  alt="Grafik zur lokalen Datenspeicherung in der Paarlife-App"
+                  class="infographic">
+        </article>
+
+        <!-- 6 -->
+        <article class="principle">
+            <h3>3 · Anonymisierung &amp; Pseudonymisierung</h3>
+            <h4>Warum?</h4>
+            <p>
+                Ermöglicht Forschung und App-Optimierung ohne Rückschluss auf Personen –
+                besonders wichtig für Erhebungen und statistische Auswertungen im Rahmen
+                einer Masterarbeit.
+            </p>
+
+            <h4>Wie in der Paarlife-App?</h4>
+            <ul>
+                <li>Analysen nur auf anonymisierten / pseudonymisierten Datensätzen.</li>
+                <li>Regelmäßige Überprüfung der Nicht-Re-Identifizierbarkeit.</li>
+            </ul>
+        </article>
+
+        <!-- 7 -->
+        <article class="principle">
+            <h3>4 · Sicheres Hosting</h3>
+            <h4>Warum?</h4>
+            <p>Garantiert langfristig höchste Sicherheitsstandards.</p>
+            <h4>Wie in der Paarlife-App?</h4>
+            <ul>
+                <li>Hosting bei ISO 27001-zertifizierten CH-Anbietern.</li>
+                <li>Aufbau der digitalen Infrastruktur auf nationalen Umgebungen.</li>
+            </ul>
+        </article>
+
+        <!-- 8 -->
+        <article class="principle">
+            <h3>5 · Nutzerzentrierte, klare Kommunikation</h3>
+            <h4>Warum?</h4>
+            <p>Nutzer sollen jederzeit verstehen, wie ihre Daten geschützt sind.</p>
+            <h4>Wie in der Paarlife-App?</h4>
+            <ul>
+                <li>Integrierte FAQ mit allen wichtigen Antworten.</li>
+            </ul>
+        </article>
+    </section>
+</main>
+</body>
+</html>

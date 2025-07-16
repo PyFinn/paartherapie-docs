@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title>Paartheerapie · Inhalt-Übersicht</title>
+
+    <style>
+        /* ---------- Fonts (identisch eingebunden, lokal im Projekt) ---------- */
+        @font-face{font-family:'Museo Sans Rounded';src:url('assets/fonts/Museo-Sans/Museo Sans Rounded 500.ttf') format('truetype');font-weight:500}
+        @font-face{font-family:'Nimbus Sans';src:url('assets/fonts/Nimbus-Sans/Nimbus Sans Regular.ttf') format('truetype');font-weight:400}
+        :root{
+          --c-primary:#2D336B;--c-bg:#FFF2F2;--c-surface:#FFF;--c-outline:#BDBDBD;
+          --c-white:#fff;--c-text:#333;
+        }
+        *,*:before,*:after{box-sizing:border-box}
+        html,body{margin:0;padding:0;background:var(--c-bg);color:var(--c-text);font:400 1rem/1.6 'Nimbus Sans',sans-serif}
+        h1,h2,h3{font-family:'Museo Sans Rounded',sans-serif;margin:0}
+        header{text-align:center;padding:2rem 1rem;background:var(--c-primary);color:var(--c-white)}
+        main{max-width:900px;margin:auto;padding:2rem 1rem}
+        nav ul{display:flex;gap:1.4rem;list-style:none;padding:0;margin:0 0 2.5rem}
+        nav a{color:var(--c-primary);font-weight:500;text-decoration:none}
+        nav a.active{font-weight:700;text-decoration:underline}
+        section{margin-bottom:3rem}
+        section h2{font-size:1.6rem;border-left:.35rem solid var(--c-primary);padding-left:.6rem}
+
+        /* ---------- Prinzip-Karten ---------- */
+        .principle{
+          background:var(--c-surface);border:1px solid var(--c-outline);border-radius:.8rem;
+          padding:1.4rem;margin-bottom:1.6rem;
+        }
+        .principle h3{color:var(--c-primary);font-size:1.25rem;margin-bottom:.6rem}
+        .principle h4{font-size:1rem;margin:.9rem 0 .3rem;color:var(--c-text)}
+
+        /* ---------- Infografik ---------- */
+        .infographic{
+          display:block;
+          max-width:640px;   /* begrenzt die Breite auf großen Screens */
+          width:100%;
+          margin:1.4rem auto;          /* zentriert & sorgt für Abstand */
+          border-radius:12px;          /* runde Ecken */
+          box-shadow:0 4px 8px #0002;  /* dezenter Schatten */
+        }
+
+        #grundsaetze > h2{
+          margin-bottom:1.2rem;   /* beliebig anpassen */
+        }
+
+        /* ---------- Intro-Banner ---------- */
+        .intro{
+          background:var(--c-surface);
+          border:1px solid var(--c-outline);
+          border-radius:.9rem;
+          padding:1.6rem 1.8rem;
+          margin-bottom:2.2rem;      /* Abstand zu den folgenden Artikeln */
+          box-shadow:0 3px 6px #0002;
+        }
+        .intro h2{                   /* Überschrift größer & markanter */
+          font-size:1.7rem;
+          border:none;
+          margin:0 0 1rem;
+          color:var(--c-primary);
+        }
+        .intro p{margin:.8rem 0}
+
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Paartherapie · Inhalt-Übersicht</h1>
+    <p>Ideen &amp; Vorschläge zur Inhaltlichen Ausgestaltung</p>
+</header>
+
+<main>
+    <nav>
+        <ul>
+            <li><a href="info.html">Design-Theme</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="inhalt.html" class="active">Inhalt</a></li>
+        </ul>
+    </nav>
+    <section id="funktionen">
+
+        <!-- Intro-Banner -->
+        <div class="intro">
+            <h2>Wie die App Paare durch ihren Beziehungs-Alltag begleitet</h2>
+
+            <p>
+                Wir kombinieren ein adaptives Lernsystem mit evidenzbasierten verhaltenstherapeutischen Methoden. Auf dieser Seite sind erste inhaltliche Überlegungen sichtbar, darunter die Zielgruppen, der Onboardingprozess sowie die Modulgestaltung
+            </p>
+        </div>
+
+        <!-- 1 | Zielgruppe -->
+        <article class="principle">
+            <h3>1 · Zielgruppe</h3>
+            <h4>Wer profitiert?</h4>
+            <ul>
+                <li>Frisch Verliebte &amp; frisch Verheiratete</li>
+                <li>Werdende Eltern &amp; junge Familien</li>
+                <li>Fernbeziehungen</li>
+                <li>Langjährige Partnerschaften &amp; ältere Paare</li>
+                <li>Paare nach abgeschlossener Therapie</li>
+                <li>Alle, die Alltagsstress oder kritische Übergangsphasen erleben</li>
+                <li><strong>Exklusive:</strong> Paare in akuten Krisen oder Gewalt­kontexten</li>
+            </ul>
+        </article>
+
+        <!-- 2 | Onboarding -->
+        <article class="principle">
+            <h3>2 · Onboarding &amp; Bestandsaufnahme</h3>
+            <h4>Erhebung</h4>
+            <ul>
+                <li>Biografische Daten (Alter, berufliche Situation)</li>
+                <li>Psychologischer Fragebogen</li>
+                <li>Beziehungsdaten (Wohnsituation, Dauer …)</li>
+                <li>Vor­erfahrungen mit Paartherapie</li>
+                <li>Aktuelle Stressoren &amp; Herausforderungen</li>
+                <li>Problemanalyse &amp; Zieldefinition (text-, audio- oder ranking-basiert)</li>
+            </ul>
+
+            <h4>Ablauf</h4>
+            <ul>
+                <li>Nacheinander geschachtelte Ja / Nein Fragen (hauptsächlich zur Biografie & Beziehungsdaten)</li>
+                <li>Auswahl an verschiedenen Herausforderungen & Lebensumständen mittels Drag & Drop / Gewichtung oder Schieberegler</li>
+                <li>Problemanalyse: Getrennte Problembeschreibung von A und B (Audio oder Text) —> Gegenüberstellung und Abgleich</li>
+                <li>Zieldefinition mittels eigener Ziele und Zielvorschläge: gemeinsame Auswahl und Gewichtung</li>
+                <li>Optional: Lange Fragerunden auslassen, standardisierter Ablauf</li>
+            </ul>
+        </article>
+
+        <!-- 3 | Lernpfad -->
+        <article class="principle">
+            <h3>3 · Lernpfad-Struktur</h3>
+            <ul>
+                <li>3-5 Minuten pro Tag, im Micro-Learning-Mix (Kurz- &amp; Langübungen)</li>
+                <li>Basismodule für alle, spezifische Module je nach Onboarding</li>
+                <li>Ein Modul deckt etwa 5 Tage ab (Tempo frei wählbar)</li>
+                <li>Automatischer Fortschritt: abgeschlossenes Modul → nächstes Modul</li>
+                <li>Lernpfad orientiert sich an üblicher Therapie: 8-14 Module nach den typischen Verhaltenstherapeutischen Kompetenzen</li>
+                <li>Offene Frage: Endet der Lernpfad? Wann? Wo?</li>
+            </ul>
+        </article>
+
+        <!-- 4 | Modul-Generierung -->
+        <article class="principle">
+            <h3>4 · Lernpfad-Generierung</h3>
+            <h4>Regelbasiertes adaptives System</h4>
+            <ul>
+                <li><strong>Input:</strong> Onboarding-Variablen</li>
+                <li><strong>Datenbasis:</strong> Modul-Metadaten &amp; Matching-Scores</li>
+                <li><strong>Logik:</strong> Jede Antwort triggert 1-n Module<br>
+                    <em>Bsp.</em> &nbsp;„Langeweile“ → Modul «Revitalisierung»,<br>
+                    „Seit 1 Monat ein Paar“ → Modul «Frisch Verliebt»</li>
+                <li>Fortlaufendes Nutzer-Feedback verfeinert das Matching => Stetige reaktive Evaluation</li>
+            </ul>
+        </article>
+
+        <!-- 5 | Modul-Gestaltung -->
+        <article class="principle">
+            <h3>5 · Modul-Design</h3>
+            <ul>
+                <li>Mischung: kurz/lang · spielerisch/ernst · Wissen/Anwendung</li>
+                <li>Roter Faden: Einführung → Wissen → Übung → Reflexion/Hausaufgabe</li>
+                <li>Zwei Varianten: <em>Prävention</em> und <em>Nachsorge</em></li>
+            </ul>
+        </article>
+
+        <!-- 6 | Basismodule -->
+        <article class="principle">
+            <h3>6 · Basismodule (für alle Paare)</h3>
+            <p>Angelehnt an verhaltenstherapeutische Klassiker:</p>
+            <ul>
+                <li>OHI – Beziehungsrückblick</li>
+                <li>Reziprozitätstraining &amp; Kommunikation</li>
+                <li>Problemlösung &amp; Stress / Dyadisches Coping</li>
+                <li>Trichtermethode, 3-Phasen-Methode</li>
+                <li>Akzeptanzarbeit · Ausblick &amp; Zukunft</li>
+            </ul>
+        </article>
+
+        <!-- 7 | Spezifische Module -->
+        <article class="principle">
+            <h3>7 · Spezifische Module</h3>
+            <ul>
+                <li>Werdende Eltern &amp; junge Familien</li>
+                <li>Revitalisierung (Langzeitpaare)</li>
+                <li>Fernbeziehung</li>
+                <li>Sexualität</li>
+                <li>Kognitive Methoden</li>
+                <li>Frisch Verliebte / Verheiratete</li>
+                <li>uvm...</li>
+            </ul>
+            <p><em>Optional in der Bibliothek:</em> Untreue, Übergang Rente, offene Beziehung, Bindungsstile …</p>
+        </article>
+
+        <!-- 8 | Bibliothek -->
+        <article class="principle">
+            <h3>8 · Bibliothek</h3>
+            <ul>
+                <li>Frei zugänglicher Pool aus Artikeln, Videos, Interviews, Quiz &amp; Zusatzmodulen</li>
+                <li>Kann unabhängig vom Lernpfad genutzt werden – auch von Singles</li>
+                <li>Ergänzt vertiefend Wissen &amp; Übungen</li>
+                <li>Einbindung von Gastbeiträgen oder aktuellen Forschungsergebnissen</li>
+            </ul>
+        </article>
+
+        <!-- 9 | Beispielfunktionen -->
+        <article class="principle">
+            <h3>9 · Beispielfunktionen</h3>
+            <ul>
+                <li>Multiple-Choice-Quiz am Ende eines Moduls<br>
+                    <em>Beispiel:</em> Dyadisches-Coping-Quiz – „Welche Coping-Reaktion passt zu dieser Aussage?“</li>
+
+                <li>Umfragen &amp; Kennenlern-/tiefgründige Fragen</li>
+                <li>Kurzvideos mit Erklärungen oder Interviews (ähnlich wie bei Paarlife)</li>
+                <li>Kompakte Artikel zur Wissensvermittlung</li>
+                <li>Inspiration für Dates, Erinnerungen an Quality-Time &amp; Rituale</li>
+                <li>Emotionstagebuch &amp; Spaltenprotokolle</li>
+                <li>Videos mit Fallbeispielen + passende Reaktion auswählen</li>
+                <li>Situationen einschätzen (Konfliktstil) &amp; destruktive Aussagen konstruktiv umschreiben</li>
+                <li>Geführte Konflikt-Reflexion (Gefühle ausdrücken, Wünsche formulieren)</li>
+                <li>Verstärkerlisten: App schlägt Belohnungen vor → Partner bestätigen Auswahl</li>
+                <li>Inspiration aus Therapiekarten</li>
+                <li>Schieberegler zum Stresslevel in verschiedenen Bereichen → Vergleich mit Partner</li>
+                <li>Wertekarten: per Swipe wichtige Werte auswählen</li>
+                <li>„Akzeptanz vs. Veränderung“-Spiel: Aussagen durchgehen und wählen, ob ändern oder annehmen</li>
+                <li>Problemlösung: Partner A benennt ein Problem, beide geben Lösungsvorschläge ein, anschließend Einigung</li>
+            </ul>
+        </article>
+    </section>
+</main>
+</body>
+</html>
