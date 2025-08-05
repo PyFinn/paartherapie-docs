@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title>Beziehungspflege · Onboarding</title>
+
+    <style>
+        /* ---------- Fonts (identisch eingebunden, lokal im Projekt) ---------- */
+        @font-face{font-family:'Museo Sans Rounded';src:url('assets/fonts/Museo-Sans/Museo Sans Rounded 500.ttf') format('truetype');font-weight:500}
+        @font-face{font-family:'Nimbus Sans';src:url('assets/fonts/Nimbus-Sans/Nimbus Sans Regular.ttf') format('truetype');font-weight:400}
+        :root{
+          --c-primary:#2D336B;--c-bg:#FFF2F2;--c-surface:#FFF;--c-outline:#BDBDBD;
+          --c-white:#fff;--c-text:#333;
+        }
+        *,*:before,*:after{box-sizing:border-box}
+        html,body{margin:0;padding:0;background:var(--c-bg);color:var(--c-text);font:400 1rem/1.6 'Nimbus Sans',sans-serif}
+        h1,h2,h3{font-family:'Museo Sans Rounded',sans-serif;margin:0}
+        header{text-align:center;padding:2rem 1rem;background:var(--c-primary);color:var(--c-white)}
+        main{max-width:900px;margin:auto;padding:2rem 1rem}
+        nav ul{display:flex;gap:1.4rem;list-style:none;padding:0;margin:0 0 2.5rem}
+        nav a{color:var(--c-primary);font-weight:500;text-decoration:none}
+        nav a.active{font-weight:700;text-decoration:underline}
+
+        /* ---------- Onboarding Cards ---------- */
+        .component-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+          gap:1.6rem;
+        }
+        .component-card{
+          background:var(--c-surface);
+          border:1px solid var(--c-outline);
+          border-radius:.85rem;
+          box-shadow:0 2px 5px rgba(0,0,0,.06);
+          overflow:hidden;
+          transition:transform .25s ease, box-shadow .25s ease;
+        }
+        .component-card:hover{
+          transform:translateY(-4px) scale(1.03);
+          box-shadow:0 8px 18px rgba(0,0,0,.12);
+          cursor:pointer;
+        }
+        .component-card img{display:block;width:100%;height:auto}
+        .component-card figcaption{padding:1rem 1.2rem;font-size:.95rem;color:var(--c-text)}
+
+        /* ---------- Lightbox ---------- */
+        .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:999}
+        .lightbox img{max-width:90vw;max-height:90vh;border-radius:.8rem;box-shadow:0 6px 12px #0004}
+        .lightbox:target{opacity:1;pointer-events:auto}
+        .lightbox a.close{position:absolute;top:2rem;right:2rem;font-size:2rem;line-height:1;color:#fff;text-decoration:none}
+    </style>
+</head>
+<body>
+<header>
+    <h1>Beziehungspflege-App</h1>
+    <p>App-Onboarding</p>
+</header>
+
+<main>
+    <nav>
+        <ul>
+            <li><a href="info.html">Design-Guide</a></li>
+            <li><a href="onboarding.html" class="active">Onboarding</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="inhalt.html">Inhalt</a></li>
+        </ul>
+    </nav>
+
+    <section id="onboarding">
+        <div class="component-grid">
+            <div class="component-card">
+                <div style="padding:1rem 1.2rem;">
+                    <h2>Onboarding</h2>
+                    <p>Damit wir euch passgenaue Inhalte zur Beziehungspflege anbieten können, stellen wir zu Beginn einige Fragen. Die Antworten helfen, Empfehlungen individuell auf eure Situation abzustimmen.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-grid">
+            <figure class="component-card">
+                <a href="#start-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/splash_screen.PNG" alt="Startbildschirm">
+                </a>
+                <figcaption><strong>Startbildschirm</strong><br>Beim Öffnen der App (erscheint immer)</figcaption>
+            </figure>
+
+            <figure class="component-card">
+                <a href="#welcome-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/welcome_screen.PNG" alt="Willkommensscreen">
+                </a>
+                <figcaption><strong>Willkommensscreen</strong><br>Einmalig ausfüllen</figcaption>
+            </figure>
+
+            <figure class="component-card">
+                <a href="#personal-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/personal_questions.png" alt="Geschlechts- und Geburtsjahrauswahl">
+                </a>
+                <figcaption><strong>Geschlechts- und Geburtsjahrauswahl</strong><br>Per Klick und Schieberegler</figcaption>
+            </figure>
+
+            <figure class="component-card">
+                <a href="#living-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/living_situation.PNG" alt="Wohnsituation">
+                </a>
+                <figcaption><strong>Wohnsituation</strong><br>Einmalig ausfüllen per Klick</figcaption>
+            </figure>
+
+            <figure class="component-card">
+                <a href="#duration-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/couple_duration.PNG" alt="Beziehungsdauer">
+                </a>
+                <figcaption><strong>Beziehungsdauer</strong><br>Abfrage mit Scrollfunktion</figcaption>
+            </figure>
+
+            <figure class="component-card">
+                <a href="#situation-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/couple_situations.png" alt="Partnerschaftssituationen">
+                </a>
+                <figcaption><strong>Partnerschaftssituationen</strong><br>Mehrere Kategorien wählbar</figcaption>
+            </figure>
+
+            <figure class="component-card">
+                <a href="#sliders-lightbox">
+                    <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/sliders.PNG" alt="Partnerschafts-Bestandteile">
+                </a>
+                <figcaption><strong>Partnerschafts-Bestandteile</strong><br>Schieberegler für einzelne Aspekte</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Lightbox Overlays -->
+    <div id="start-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/splash_screen.PNG" alt="Startbildschirm">
+    </div>
+
+    <div id="welcome-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/welcome_screen.PNG" alt="Willkommensscreen">
+    </div>
+
+    <div id="personal-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/personal_questions.png" alt="Geschlechts- und Geburtsjahrauswahl">
+    </div>
+
+    <div id="living-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/living_situation.PNG" alt="Wohnsituation">
+    </div>
+
+    <div id="duration-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/couple_duration.PNG" alt="Beziehungsdauer">
+    </div>
+
+    <div id="situation-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/couple_situations.png" alt="Partnerschaftssituationen">
+    </div>
+
+    <div id="sliders-lightbox" class="lightbox">
+        <a href="#onboarding" class="close" aria-label="Schließen">×</a>
+        <img src="https://raw.githubusercontent.com/PyFinn/fez/refs/heads/main/assets/shaders/sliders.PNG" alt="Partnerschafts-Bestandteile">
+    </div>
+
+</main>
+</body>
+</html>
