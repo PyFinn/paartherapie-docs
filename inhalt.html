@@ -62,6 +62,17 @@
         }
         .intro p{margin:.8rem 0}
 
+        /* ---------- Disclaimer ---------- */
+        .disclaimer{
+          background:var(--c-surface);
+          border:2px solid #F9DEDC;
+          border-radius:.8rem;
+          padding:1.2rem;
+          margin:1rem 0;
+          background-color:#F9DEDC;
+        }
+        .disclaimer strong{color:#D32F2F;}
+
     </style>
 </head>
 
@@ -87,7 +98,9 @@
             <h2>Wie die App Paare durch ihren Beziehungs-Alltag begleitet</h2>
 
             <p>
-                Wir kombinieren ein adaptives Lernsystem mit evidenzbasierten verhaltenstherapeutischen Methoden. Auf dieser Seite sind erste inhaltliche Überlegungen sichtbar, darunter die Zielgruppen, der Onboardingprozess sowie die Modulgestaltung
+                Wir kombinieren ein adaptives Lernsystem mit evidenzbasierten verhaltenstherapeutischen Methoden. 
+                Die App bietet einen strukturierten Ansatz zur Beziehungsförderung mit personalisierten Lernpfaden 
+                und kontinuierlicher Bestandsaufnahme.
             </p>
         </div>
 
@@ -96,14 +109,17 @@
             <h3>1 · Zielgruppe</h3>
             <h4>Wer profitiert?</h4>
             <ul>
-                <li>Frisch Verliebte &amp; frisch Verheiratete</li>
-                <li>Werdende Eltern &amp; junge Familien</li>
-                <li>Fernbeziehungen</li>
-                <li>Langjährige Partnerschaften &amp; ältere Paare</li>
-                <li>Paare nach abgeschlossener Therapie</li>
-                <li>Alle, die Alltagsstress oder kritische Übergangsphasen erleben</li>
-                <li><strong>Exklusive:</strong> Paare in akuten Krisen oder Gewalt­kontexten</li>
+                <li><strong>Frisch Verliebte</strong> – Unterstützung beim Aufbau einer gesunden Beziehungsbasis</li>
+                <li><strong>(Werdende) Eltern</strong> – Begleitung durch die Herausforderungen der Familienplanung</li>
+                <li><strong>Fernbeziehungen</strong> – Spezielle Module für räumlich getrennte Paare</li>
+                <li><strong>Langjährige Partnerschaften</strong> – Revitalisierung und Vertiefung bestehender Beziehungen</li>
             </ul>
+            
+            <div class="disclaimer">
+                <strong>⚠️ Wichtiger Hinweis:</strong> Paare in akuten Krisen oder Gewaltkontexten sollten 
+                professionelle Hilfe in Anspruch nehmen. Die App ist nicht als Ersatz für therapeutische 
+                Behandlung gedacht.
+            </div>
         </article>
 
         <!-- 2 | Onboarding -->
@@ -111,21 +127,30 @@
             <h3>2 · Onboarding &amp; Bestandsaufnahme</h3>
             <h4>Erhebung</h4>
             <ul>
-                <li>Biografische Daten (Alter, berufliche Situation)</li>
-                <li>Psychologischer Fragebogen</li>
-                <li>Beziehungsdaten (Wohnsituation, Dauer …)</li>
-                <li>Vor­erfahrungen mit Beziehungspflege</li>
-                <li>Aktuelle Stressoren &amp; Herausforderungen</li>
-                <li>Problemanalyse &amp; Zieldefinition (text-, audio- oder ranking-basiert)</li>
+                <li><strong>Biografische Daten:</strong> Alter, Geschlecht, Bildungsgrad, Wohnform</li>
+                <li><strong>Beziehungsdaten:</strong> Dauer, Häufigkeit der Treffen</li>
+                <li><strong>Zielgruppenkategorien:</strong> Selbstständige Auswahl aus 4 Kategorien</li>
             </ul>
 
-            <h4>Ablauf</h4>
+            <h4>Selbstständige Einschätzung des aktuellen Beziehungsstandes</h4>
+            <p>Schieberegler für folgende Bereiche:</p>
             <ul>
-                <li>Nacheinander geschachtelte Ja / Nein Fragen (hauptsächlich zur Biografie & Beziehungsdaten)</li>
-                <li>Auswahl an verschiedenen Herausforderungen & Lebensumständen mittels Drag & Drop / Gewichtung oder Schieberegler</li>
-                <li>Problemanalyse: Getrennte Problembeschreibung von A und B (Audio oder Text) —> Gegenüberstellung und Abgleich</li>
-                <li>Zieldefinition mittels eigener Ziele und Zielvorschläge: gemeinsame Auswahl und Gewichtung</li>
-                <li>Optional: Lange Fragerunden auslassen, standardisierter Ablauf</li>
+                <li>Kommunikation</li>
+                <li>Dyadisches Coping</li>
+                <li>Sexualität</li>
+                <li>Problemlösung</li>
+                <li>Commitment</li>
+                <li>Partnerschaftszufriedenheit</li>
+            </ul>
+            
+            <h4>Auswertung &amp; Zielsetzung</h4>
+            <ul>
+                <li><strong>Cut-Off bei 60%:</strong> Werte darunter werden als "kritisch" eingestuft</li>
+                <li><strong>Spider Chart:</strong> Visualisierung der Ergebnisse mit Partnervergleich</li>
+                <li><strong>Problemfeld-Hinweise:</strong> Automatische Identifikation großer Problembereiche</li>
+                <li><strong>Optionale Vertiefung:</strong> Detaillierte Fragebögen zur präzisen Problemidentifikation</li>
+                <li><strong>Zielvorschläge:</strong> Basierend auf Schieberegler-Einschätzung</li>
+                <li><strong>Zielauswahl:</strong> Mittels Schieberegler, sichtbar auf der Profilseite</li>
             </ul>
         </article>
 
@@ -133,12 +158,11 @@
         <article class="principle">
             <h3>3 · Lernpfad-Struktur</h3>
             <ul>
-                <li>3-5 Minuten pro Tag, im Micro-Learning-Mix (Kurz- &amp; Langübungen)</li>
-                <li>Basismodule für alle, spezifische Module je nach Onboarding</li>
-                <li>Ein Modul deckt etwa 5 Tage ab (Tempo frei wählbar)</li>
-                <li>Automatischer Fortschritt: abgeschlossenes Modul → nächstes Modul</li>
-                <li>Lernpfad orientiert sich an üblicher Therapie: 8-14 Module nach den typischen verhaltenstherapeutischen Kompetenzen</li>
-                <li>Offene Frage: Endet der Lernpfad? Wann? Wo?</li>
+                <li><strong>3-5 Minuten täglicher Input:</strong> Affirmationen, Fragen, Quizze, Dankbarkeitsübungen</li>
+                <li><strong>Längere Übungen:</strong> Zur konkreten Anwendung im Alltag</li>
+                <li><strong>Modulstruktur:</strong> Ein Modul deckt etwa 5 Tage ab (Tempo frei wählbar)</li>
+                <li><strong>Automatischer Fortschritt:</strong> Abgeschlossenes Modul → nächstes Modul</li>
+                <li><strong>Booster-Session:</strong> Optional nach 2 Monaten, wenn alle vorgeschlagenen Module durchgearbeitet wurden</li>
             </ul>
         </article>
 
@@ -149,84 +173,39 @@
             <ul>
                 <li><strong>Input:</strong> Onboarding-Variablen</li>
                 <li><strong>Datenbasis:</strong> Modul-Metadaten &amp; Matching-Scores</li>
-                <li><strong>Logik:</strong> Jede Antwort triggert 1-n Module<br>
-                    <em>Bsp.</em> &nbsp;„Langeweile“ → Modul «Revitalisierung»,<br>
-                    „Seit 1 Monat ein Paar“ → Modul «Frisch Verliebt»</li>
-                <li>Fortlaufendes Nutzer-Feedback verfeinert das Matching => Stetige reaktive Evaluation</li>
+                <li><strong>Logik:</strong> Jede Antwort auf den Schiebereglern &amp; optional aus den Fragebögen triggert bestimmte Module &amp; wie intensiv/umfangreich diese vermittelt werden</li>
             </ul>
         </article>
 
-        <!-- 5 | Modul-Gestaltung -->
+        <!-- 5 | Modul-Themen -->
         <article class="principle">
-            <h3>5 · Modul-Design</h3>
+            <h3>5 · Modul-Themen</h3>
             <ul>
-                <li>Mischung: kurz/lang · spielerisch/ernst · Wissen/Anwendung</li>
-                <li>Roter Faden: Einführung → Wissen → Übung → Reflexion/Hausaufgabe</li>
-                <li>Zwei Varianten: <em>Prävention</em> und <em>Nachsorge</em></li>
+                <li><strong>OHI</strong> – Beziehungsrückblick</li>
+                <li><strong>Reziprozitätstraining</strong></li>
+                <li><strong>Kommunikation &amp; Konflikte</strong></li>
+                <li><strong>Problemlösetraining</strong></li>
+                <li><strong>Stress &amp; Dyadisches Coping</strong></li>
+                <li><strong>Trichtermethode &amp; 3-Phasen Methode</strong></li>
+                <li><strong>Akzeptanzarbeit</strong></li>
+                <li><strong>Sexualität</strong></li>
+                <li><strong>Kognitive Methoden</strong></li>
+                <li><strong>Eltern</strong> – Spezielle Module für werdende und junge Eltern</li>
+                <li><strong>Langzeitprogramm</strong> – Für langjährige Partnerschaften</li>
+                <li><strong>Fernbeziehung</strong> – Spezielle Herausforderungen räumlicher Trennung</li>
+                <li><strong>Frisch-verliebte</strong> – Aufbau einer gesunden Beziehungsbasis</li>
             </ul>
         </article>
 
-        <!-- 6 | Basismodule -->
+        <!-- 6 | Bibliothek -->
         <article class="principle">
-            <h3>6 · Basismodule (für alle Paare)</h3>
-            <p>Angelehnt an verhaltenstherapeutische Klassiker:</p>
-            <ul>
-                <li>OHI – Beziehungsrückblick</li>
-                <li>Reziprozitätstraining &amp; Kommunikation</li>
-                <li>Problemlösung &amp; Stress / Dyadisches Coping</li>
-                <li>Trichtermethode, 3-Phasen-Methode</li>
-                <li>Akzeptanzarbeit</li>
-                <li>Ausblick &amp; Zukunft</li>
-            </ul>
-        </article>
-
-        <!-- 7 | Spezifische Module -->
-        <article class="principle">
-            <h3>7 · Spezifische Module</h3>
-            <ul>
-                <li>Werdende Eltern &amp; junge Familien</li>
-                <li>Revitalisierung (Langzeitpaare)</li>
-                <li>Fernbeziehung</li>
-                <li>Sexualität</li>
-                <li>Kognitive Methoden</li>
-                <li>Frisch Verliebte / Verheiratete</li>
-                <li>uvm...</li>
-            </ul>
-            <p><em>Optional in der Bibliothek:</em> Untreue, Übergang Rente, offene Beziehung, Bindungsstile …</p>
-        </article>
-
-        <!-- 8 | Bibliothek -->
-        <article class="principle">
-            <h3>8 · Bibliothek</h3>
+            <h3>6 · Bibliothek</h3>
             <ul>
                 <li>Frei zugänglicher Pool aus Artikeln, Videos, Interviews, Quiz &amp; Zusatzmodulen</li>
                 <li>Kann unabhängig vom Lernpfad genutzt werden – auch von Singles</li>
                 <li>Ergänzt vertiefend Wissen &amp; Übungen</li>
                 <li>Einbindung von Gastbeiträgen oder aktuellen Forschungsergebnissen</li>
-            </ul>
-        </article>
-
-        <!-- 9 | Beispielfunktionen -->
-        <article class="principle">
-            <h3>9 · Beispielfunktionen</h3>
-            <ul>
-                <li>Multiple-Choice-Quiz am Ende eines Moduls<br>
-                    <em>Beispiel:</em> Dyadisches-Coping-Quiz – „Welche Coping-Reaktion passt zu dieser Aussage?“</li>
-
-                <li>Umfragen &amp; Kennenlern-/tiefgründige Fragen</li>
-                <li>Kurzvideos mit Erklärungen oder Interviews (ähnlich wie bei Paarlife)</li>
-                <li>Kompakte Artikel zur Wissensvermittlung</li>
-                <li>Inspiration für Dates, Erinnerungen an Quality-Time &amp; Rituale</li>
-                <li>Emotionstagebuch &amp; Spaltenprotokolle</li>
-                <li>Videos mit Fallbeispielen + passende Reaktion auswählen</li>
-                <li>Situationen einschätzen (Konfliktstil) &amp; destruktive Aussagen konstruktiv umschreiben</li>
-                <li>Geführte Konflikt-Reflexion (Gefühle ausdrücken, Wünsche formulieren)</li>
-                <li>Verstärkerlisten: App schlägt Belohnungen vor → Partner bestätigen Auswahl</li>
-                <li>Inspiration aus Therapiekarten</li>
-                <li>Schieberegler zum Stresslevel in verschiedenen Bereichen → Vergleich mit Partner</li>
-                <li>Wertekarten: per Swipe wichtige Werte auswählen</li>
-                <li>„Akzeptanz vs. Veränderung“-Spiel: Aussagen durchgehen und wählen, ob ändern oder annehmen</li>
-                <li>Problemlösung: Partner A benennt ein Problem, beide geben Lösungsvorschläge ein, anschließend Einigung</li>
+                <li>Optionale Module für spezielle Themen (Untreue, Übergang Rente, offene Beziehung, Bindungsstile)</li>
             </ul>
         </article>
     </section>
